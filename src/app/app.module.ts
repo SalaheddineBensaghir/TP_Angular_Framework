@@ -6,13 +6,14 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { ProductsComponent } from './products/products.component';
 import { NewProductComponent } from './new-product/new-product.component';
-import {HttpClientModule, provideHttpClient, withFetch} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClientModule, provideHttpClient, withFetch} from "@angular/common/http";
 import {ProductService} from "./services/product.service";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { EditProductComponent } from './edit-product/edit-product.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { AppErrorsComponent } from './app-errors/app-errors.component';
+import {AppHttpInterceptor} from "./services/app-http.interceptor";
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { AppErrorsComponent } from './app-errors/app-errors.component';
   ],
   providers: [
     provideClientHydration(),
-    provideHttpClient(withFetch())
+    provideHttpClient(withFetch()),
+    {provide : HTTP_INTERCEPTORS, useClass: AppHttpInterceptor,multi:true}
 
   ],
   bootstrap: [AppComponent]
