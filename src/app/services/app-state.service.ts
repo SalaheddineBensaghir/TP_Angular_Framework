@@ -10,7 +10,8 @@ export class AppStateService {
     keyword : "" ,
     totalPage: 0,
     pageSize:3,
-    currentPage:1
+    currentPage:1,
+    totalProduct:0
   }
 
   constructor() { }

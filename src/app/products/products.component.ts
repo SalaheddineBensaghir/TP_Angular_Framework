@@ -22,16 +22,17 @@ export class ProductsComponent implements  OnInit{
   ngOnInit(): void{
 
 
-this.getProduct();
+this.searchProduct();
   }
-  getProduct(){
+  searchProduct(){
 
 
-this.productService.getProduct(this.appState.productState.keyword,this.appState.productState.currentPage,this.appState.productState.pageSize)
+this.productService.searchProduct(this.appState.productState.keyword,this.appState.productState.currentPage,this.appState.productState.pageSize)
   .subscribe({
       next: (resp) => {
         this.appState.productState.products=resp.body as Product[];
         let totalProducts : number=parseInt(resp.headers.get('X-Total-Count')!);
+        this.appState.productState.totalProduct=totalProducts;
         console.log(totalProducts);
 
 this.appState.productState.totalPage= Math.floor(totalProducts/this.appState.productState.pageSize);
@@ -68,6 +69,7 @@ this.productService.deleteProduct(product).subscribe({
   next:value => {
    //this.getProduct();
     this.appState.productState.products=this.appState.productState.products.filter((p:any )=>p.id!=product.id);
+  this.searchProduct();
   }
 })
   }
@@ -84,7 +86,7 @@ this.productService.deleteProduct(product).subscribe({
 
   handleGotoPage(page: number) {
    this.appState.productState.currentPage=page;
-    this.getProduct()
+    this.searchProduct()
   }
 
   handleEdite(product: Product) {

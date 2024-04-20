@@ -10,7 +10,7 @@ export class ProductService {
 
   constructor(private http:HttpClient) { }
 
-  public  getProduct(keyword:string="",page:number=1,size:number=4){
+  public  searchProduct(keyword:string="",page:number=1,size:number=4){
     return     this.http.get(`http://localhost:3000/products?name_like=${keyword}&_page=${page}&_limit=${size}`,{observe:'response'});
 
   }

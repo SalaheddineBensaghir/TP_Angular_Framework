@@ -3,7 +3,7 @@
     {
       "id": "1",
       "name": "test",
-      "price": 5000,
+      "price": "600",
       "checked": false
     },
     {
@@ -11,12 +11,6 @@
       "name": "test ben",
       "price": 5000,
       "checked": false
-    },
-    {
-      "id": "3",
-      "name": "test44",
-      "price": "520",
-      "checked": true
     },
     {
       "id": "4",

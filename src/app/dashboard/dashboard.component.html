@@ -3,7 +3,13 @@
     <div class="card-body">
       <ul class="nav nav-pills">
         <li >
-          <label class="border border-info p-1 bg-info text-white m-1">Total:{{appState.productState.products.length}}</label>
+          <label class="border border-info p-1 bg-info text-white m-1">Total Products:{{appState.productState.totalProduct}}</label>
+        </li>
+        <li >
+          <label class="border border-info p-1 bg-primary text-white m-1"> Size:{{appState.productState.pageSize}}</label>
+        </li>
+        <li >
+          <label class="border border-info p-1 bg-info text-white m-1">Total Page:{{appState.productState.totalPage}}</label>
         </li>
         <li >
           <label class="border border-info p-1 bg-success text-black m-1">Checked:{{totalCheckedProduct()}}</label>
