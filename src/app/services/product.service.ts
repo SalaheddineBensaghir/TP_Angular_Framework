@@ -15,16 +15,16 @@ private  host :string="http://localhost:3000";
 
   }
   public  checkProduct(product:Product):Observable<Array<Product>>{
-    return     this.http.patch<any>("${this.host}/products/"+product.id,{checked:!product.checked})
+    return     this.http.patch<any>(`${this.host}/products/`+product.id,{checked:!product.checked})
 
   }
   public  deleteProduct(product:Product){
-    return     this.http.delete<Product>("${this.host}/products/"+product.id)
+    return     this.http.delete<Product>(`${this.host}/products/`+product.id)
 
   }
 
   saveProduct(product: any) {
-    return     this.http.post<Product>("${this.host}/products",product)
+    return     this.http.post<Product>(`${this.host}/products/`,product)
 
 
   }
@@ -34,12 +34,12 @@ private  host :string="http://localhost:3000";
   // }
 
   getProductById(productId: number): Observable<Product> {
-    return  this.http.get<Product>("${this.host}/products/"+productId);
+    return  this.http.get<Product>(`${this.host}/products/${productId}`);
   }
 
   updateProduct(product: Product):Observable<Product> {
 
-    return  this.http.put<Product>("${this.host}/products/"+product.id,product)
+    return  this.http.put<Product>(`${this.host}/products/${product.id}`,product)
 
   }
 }

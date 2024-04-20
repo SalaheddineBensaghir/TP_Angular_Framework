@@ -9,7 +9,7 @@
       </button>
 
     </li>
-    <li *ngIf="appState.productState.status=='LOADING'">
+    <li *ngIf="loadingServic.isLoading$ | async">
       <div class="spinner-border text-primary ms-2" role="status">
       </div>
     </li>
