@@ -14,7 +14,7 @@
           <th>Name</th> <th>Price</th> <th>Checked</th>
         </tr>
         </thead>
-        <tbody>
+        <tbody *ngIf="appState.productState.products">
         <tr *ngFor="let product of appState.productState.products">
           <td>{{product.name}}</td>
           <td>{{product.price}}</td>
@@ -38,7 +38,7 @@
       </table>
 
       <ul class="nav nav-pills">
-        <li *ngFor="let page of [].constructor(this.appState.productState.totalPage); let i=index">
+        <li *ngFor="let page of [].constructor(appState.productState.totalPage); let i=index">
           <button (click)="handleGotoPage(i+1)" class="btn btn-outline-success m-1">{{i+1}}</button>
         </li>
 

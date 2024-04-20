@@ -30,15 +30,18 @@ this.searchProduct();
 this.productService.searchProduct(this.appState.productState.keyword,this.appState.productState.currentPage,this.appState.productState.pageSize)
   .subscribe({
       next: (resp) => {
-        this.appState.productState.products=resp.body as Product[];
-        let totalProducts : number=parseInt(resp.headers.get('X-Total-Count')!);
-        this.appState.productState.totalProduct=totalProducts;
-        console.log(totalProducts);
+       let products=resp.body as Product[];
+        let totalProducts:number =parseInt(resp.headers.get('X-Total-Count')!);
+       // this.appState.productState.totalProduct=totalProducts;
 
-this.appState.productState.totalPage= Math.floor(totalProducts/this.appState.productState.pageSize);
+      let  totalPage: number= Math.floor(totalProducts/this.appState.productState.pageSize);
 if(totalProducts % this.appState.productState.pageSize!=0){
-  this.appState.productState.totalPage=this.appState.productState.totalPage+1;
+  // this.appState.productState.totalPage=this.appState.productState.totalPage+1;
+++totalPage;
 }
+this.appState.setProductState({
+products: products,totalProducts: totalProducts,totalPage:totalPage
+})
 
         },
       error : err => console.log(err)

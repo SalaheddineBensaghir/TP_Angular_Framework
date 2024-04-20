@@ -6,13 +6,17 @@ import {Product} from "../model/product.model";
 })
 export class AppStateService {
   public  productState:any = {
-    products : [] ,
-    keyword : "" ,
+    products : [],
+    keyword : "",
     totalPage: 0,
     pageSize:3,
     currentPage:1,
-    totalProduct:0
+    totalProducts:0
   }
 
   constructor() { }
+
+  public setProductState(state:any){
+    this.productState={...this.productState,...state}
+  }
 }
