@@ -101,7 +101,7 @@ this.productService.deleteProduct(product).subscribe({
   }
 
   handleEdite(product: Product) {
-this.router.navigateByUrl(`/editProduct/${product.id}`)
+this.router.navigateByUrl(`/admin/editProduct/${product.id}`)
   }
 }
 
