@@ -1,6 +1,9 @@
 
   <h2> Angular frameword  </h2>
-
+<h3> Login :  </h3>
+  <img src="image/6.png">
+<h3> Incorrect password :  </h3>
+  <img src="image/7.png">
    <h3> Navbar :  </h3>
   <img src="image/1.png">
 
