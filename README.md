@@ -4,6 +4,8 @@
   <img src="image/6.png">
 <h3> Incorrect password :  </h3>
   <img src="image/7.png">
+  <h3> Navbar admin :  </h3>
+  <img src="image/8.png">
    <h3> Navbar :  </h3>
   <img src="image/1.png">
 
